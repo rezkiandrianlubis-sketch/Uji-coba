@@ -697,17 +697,17 @@ kunciIsian[kode]+
 
 }
 
+const totalPG = Object.keys(kunciPG).length;
+const totalIsian = Object.keys(kunciIsian).length;
+
 let nilaiPG =
-Math.round(
-(benarPG/Object.keys(kunciPG).length)
-*100
-);
+(benarPG / totalPG) * 50;
 
 let nilaiIsian =
-Math.round(
-(benarIsian/Object.keys(kunciIsian).length)
-*100
-);
+(benarIsian / totalIsian) * 50;
+
+let nilaiAkhir =
+nilaiAkhir
 
 document.getElementById("hasil").style.display="block";
 
