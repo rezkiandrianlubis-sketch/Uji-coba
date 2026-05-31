@@ -275,7 +275,7 @@ document.getElementById("hasil").innerHTML=
 "<p><b>Nilai PG :</b> "+nilaiPG+"</p>"+
 "<p><b>Nilai Isian :</b> "+nilaiIsian+"</p>"+
 "<p><b>Nilai Akhir :</b> "+
-Math.round((nilaiPG*0.8)+(nilaiIsian*0.2))
+Math.round((nilaiPG*0.8)+(nilaiIsian*0.2))+
 "</p>"+
 "<hr>"+
 "<h3>Jawaban Salah</h3>"+
@@ -283,9 +283,7 @@ salahList+
 "<hr>"+
 "<h3>Jawaban Uraian</h3>"+
 document.getElementById("uraian1").value+
-
 "<br><br>"+
-
 "<button onclick='salinHasil()'>📋 SALIN HASIL</button>";
 }
 function salinHasil(){
