@@ -659,20 +659,31 @@ document.getElementById(kode).value
 let kunci =
 normal(kunciIsian[kode]);
 
-if(isi===kunci){
-
-benarIsian++;
-
-}else{
+if(isi===""){
 
 salahList +=
 "<p class='salah'>"+
 kode+
-" salah. Jawaban benar: "+
+" belum dijawab.<br>Jawaban benar: "+
 kunciIsian[kode]+
 "</p>";
 
 }
+else if(isi===kunci){
+
+benarIsian++;
+
+}
+else{
+
+salahList +=
+"<p class='salah'>"+
+kode+
+" salah.<br>Jawaban benar: "+
+kunciIsian[kode]+
+"</p>";
+
+  }
 
 }
 
