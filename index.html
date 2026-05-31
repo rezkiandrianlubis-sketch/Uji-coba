@@ -1,37 +1,251 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="id">
 <head>
-<meta charset="utf-8">
-<title>Kuis PAI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ujian PAI Kelas 8</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:15px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+h1{
+text-align:center;
+}
+
+input[type=text],
+textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+margin-bottom:15px;
+box-sizing:border-box;
+}
+
+.soal{
+margin-bottom:25px;
+padding:10px;
+border-bottom:1px solid #ddd;
+}
+
+button{
+width:100%;
+padding:15px;
+font-size:18px;
+background:#198754;
+color:white;
+border:none;
+border-radius:8px;
+}
+
+#hasil{
+margin-top:20px;
+padding:15px;
+background:#eef;
+border-radius:8px;
+display:none;
+}
+
+.benar{
+color:green;
+font-weight:bold;
+}
+
+.salah{
+color:red;
+font-weight:bold;
+}
+</style>
+
 </head>
 <body>
 
-<h2>Kuis PAI Kelas 8</h2>
+<div class="container">
 
-<form>
+<h1>UJIAN PAI KELAS 8</h1>
 
-<p>1. Sikap berprasangka baik kepada orang lain disebut?</p>
-<input type="radio" name="q1"> Husnuzan<br>
-<input type="radio" name="q1"> Suuzan<br>
-<input type="radio" name="q1"> Takabur<br>
-<input type="radio" name="q1"> Hasad<br>
+<label>Nama Siswa</label> <input type="text" id="nama">
 
-<p>2. Puncak ibadah haji adalah?</p>
-<input type="radio" name="q2"> Tawaf<br>
-<input type="radio" name="q2"> Sa'i<br>
-<input type="radio" name="q2"> Wukuf<br>
-<input type="radio" name="q2"> Tahallul<br>
+<label>Kelas</label> <input type="text" id="kelas">
 
-<p>3. Pendiri Dinasti Fatimiyah adalah?</p>
-<input type="radio" name="q3"> Harun Ar-Rasyid<br>
-<input type="radio" name="q3"> Ubaidillah Al-Mahdi<br>
-<input type="radio" name="q3"> Salahuddin Al-Ayyubi<br>
-<input type="radio" name="q3"> Al-Makmun<br>
+<div id="soalArea">
 
-<br>
-<button type="submit">Kirim Jawaban</button>
+<!-- SOAL PG NANTI MASUK DI SINI -->
 
-</form>
+<div class="soal">
+<p><b>1.</b> Sikap berprasangka baik kepada orang lain disebut...</p>
+
+<label>
+<input type="radio" name="q1" value="A">
+Husnuzan
+</label><br>
+
+<label>
+<input type="radio" name="q1" value="B">
+Suuzan
+</label><br>
+
+<label>
+<input type="radio" name="q1" value="C">
+Hasad
+</label><br>
+
+<label>
+<input type="radio" name="q1" value="D">
+Takabur
+</label>
+
+</div>
+
+<!-- ISIAN -->
+
+<div class="soal">
+<p><b>41.</b> Pendiri Dinasti Fatimiyah adalah ....</p>
+
+<input type="text" id="isian1">
+</div>
+
+<!-- URAIAN -->
+
+<div class="soal">
+<p><b>51.</b> Jelaskan manfaat husnuzan dalam kehidupan sehari-hari!</p>
+
+<textarea id="uraian1" rows="5"></textarea>
+
+</div>
+
+</div>
+
+<button onclick="periksa()">SELESAI UJIAN</button>
+
+<div id="hasil"></div>
+
+</div>
+
+<script>
+
+const kunciPG = {
+q1:"A"
+};
+
+const kunciIsian = {
+isian1:"ubaidillah al mahdi"
+};
+
+function normal(teks){
+return teks
+.toLowerCase()
+.trim()
+.replace(/-/g," ")
+.replace(/\s+/g," ");
+}
+
+function periksa(){
+
+let benarPG = 0;
+let salahList = "";
+
+for(let kode in kunciPG){
+
+let dipilih =
+document.querySelector(
+'input[name="'+kode+'"]:checked'
+);
+
+if(dipilih){
+
+if(dipilih.value===kunciPG[kode]){
+
+benarPG++;
+
+}else{
+
+salahList +=
+"<p class='salah'>"+
+kode+
+" salah. Jawaban benar: "+
+kunciPG[kode]+
+"</p>";
+
+}
+
+}
+
+}
+
+let benarIsian = 0;
+
+for(let kode in kunciIsian){
+
+let isi =
+normal(
+document.getElementById(kode).value
+);
+
+let kunci =
+normal(kunciIsian[kode]);
+
+if(isi===kunci){
+
+benarIsian++;
+
+}else{
+
+salahList +=
+"<p class='salah'>"+
+kode+
+" salah. Jawaban benar: "+
+kunciIsian[kode]+
+"</p>";
+
+}
+
+}
+
+let nilaiPG =
+Math.round(
+(benarPG/Object.keys(kunciPG).length)
+*100
+);
+
+let nilaiIsian =
+Math.round(
+(benarIsian/Object.keys(kunciIsian).length)
+*100
+);
+
+document.getElementById("hasil").style.display="block";
+
+document.getElementById("hasil").innerHTML=
+"<h2>Hasil Ujian</h2>"+
+"<p>Nama : "+document.getElementById("nama").value+"</p>"+
+"<p>Kelas : "+document.getElementById("kelas").value+"</p>"+
+"<p><b>Nilai PG :</b> "+nilaiPG+"</p>"+
+"<p><b>Nilai Isian :</b> "+nilaiIsian+"</p>"+
+"<hr>"+
+"<h3>Jawaban Salah</h3>"+
+salahList+
+"<hr>"+
+"<h3>Jawaban Uraian</h3>"+
+document.getElementById("uraian1").value;
+
+}
+
+</script>
 
 </body>
 </html>
