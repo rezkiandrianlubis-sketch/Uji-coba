@@ -236,15 +236,30 @@ document.getElementById("hasil").innerHTML=
 "<p>Kelas : "+document.getElementById("kelas").value+"</p>"+
 "<p><b>Nilai PG :</b> "+nilaiPG+"</p>"+
 "<p><b>Nilai Isian :</b> "+nilaiIsian+"</p>"+
+"<p><b>Nilai Akhir :</b> "+
+Math.round((nilaiPG+nilaiIsian)/2)+
+"</p>"+
 "<hr>"+
 "<h3>Jawaban Salah</h3>"+
 salahList+
 "<hr>"+
 "<h3>Jawaban Uraian</h3>"+
-document.getElementById("uraian1").value;
+document.getElementById("uraian1").value+
+
+"<br><br>"+
+
+"<button onclick='salinHasil()'>📋 SALIN HASIL</button>";
+}
+function salinHasil(){
+
+let teks =
+document.getElementById("hasil").innerText;
+
+navigator.clipboard.writeText(teks);
+
+alert("Hasil berhasil disalin");
 
 }
-
 </script>
 
 </body>
