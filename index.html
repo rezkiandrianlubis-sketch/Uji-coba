@@ -88,7 +88,41 @@ font-weight:bold;
 
 <div class="soal">
 <p><b>1.</b> Sikap berprasangka baik kepada orang lain disebut...</p>
+<div class="soal">
+<p><b>2.</b> Dalil larangan berprasangka buruk terdapat dalam surat...</p>
 
+<label><input type="radio" name="q2" value="A"> Al-Fatihah</label><br>
+<label><input type="radio" name="q2" value="B"> Al-Ikhlas</label><br>
+<label><input type="radio" name="q2" value="C"> Al-Hujurat</label><br>
+<label><input type="radio" name="q2" value="D"> Al-Kafirun</label>
+</div>
+
+<div class="soal">
+<p><b>3.</b> Puncak pelaksanaan ibadah haji adalah...</p>
+
+<label><input type="radio" name="q3" value="A"> Tawaf</label><br>
+<label><input type="radio" name="q3" value="B"> Sa'i</label><br>
+<label><input type="radio" name="q3" value="C"> Wukuf</label><br>
+<label><input type="radio" name="q3" value="D"> Tahallul</label>
+</div>
+
+<div class="soal">
+<p><b>4.</b> Universitas terkenal yang berkembang pada masa Fatimiyah adalah...</p>
+
+<label><input type="radio" name="q4" value="A"> Oxford</label><br>
+<label><input type="radio" name="q4" value="B"> Al-Azhar</label><br>
+<label><input type="radio" name="q4" value="C"> Harvard</label><br>
+<label><input type="radio" name="q4" value="D"> Sorbonne</label>
+</div>
+
+<div class="soal">
+<p><b>5.</b> Salah satu manfaat husnuzan adalah...</p>
+
+<label><input type="radio" name="q5" value="A"> Menambah konflik</label><br>
+<label><input type="radio" name="q5" value="B"> Menimbulkan fitnah</label><br>
+<label><input type="radio" name="q5" value="C"> Memutus silaturahmi</label><br>
+<label><input type="radio" name="q5" value="D"> Mempererat persaudaraan</label>
+</div>
 <label>
 <input type="radio" name="q1" value="A">
 Husnuzan
@@ -139,7 +173,11 @@ Takabur
 <script>
 
 const kunciPG = {
-q1:"A"
+q1:"A",
+q2:"C",
+q3:"C",
+q4:"B",
+q5:"D"
 };
 
 const kunciIsian = {
@@ -237,7 +275,7 @@ document.getElementById("hasil").innerHTML=
 "<p><b>Nilai PG :</b> "+nilaiPG+"</p>"+
 "<p><b>Nilai Isian :</b> "+nilaiIsian+"</p>"+
 "<p><b>Nilai Akhir :</b> "+
-Math.round((nilaiPG+nilaiIsian)/2)+
+Math.round((nilaiPG*0.8)+(nilaiIsian*0.2))
 "</p>"+
 "<hr>"+
 "<h3>Jawaban Salah</h3>"+
