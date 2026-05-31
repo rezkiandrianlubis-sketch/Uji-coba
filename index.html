@@ -707,7 +707,7 @@ let nilaiIsian =
 (benarIsian / totalIsian) * 50;
 
 let nilaiAkhir =
-nilaiAkhir
+Math.round(nilaiPG + nilaiIsian);
 
 document.getElementById("hasil").style.display="block";
 
@@ -718,7 +718,7 @@ document.getElementById("hasil").innerHTML=
 "<p><b>Nilai PG :</b> "+nilaiPG+"</p>"+
 "<p><b>Nilai Isian :</b> "+nilaiIsian+"</p>"+
 "<p><b>Nilai Akhir :</b> "+
-Math.round((nilaiPG*0.8)+(nilaiIsian*0.2))+
+nilaiAkhir
 "</p>"+
 "<hr>"+
 "<h3>Jawaban Salah</h3>"+
