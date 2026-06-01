@@ -153,10 +153,9 @@ return teks
 }
 
 function periksa(){
-alert("TES1");
+
 let benarPG = 0;
 let salahList = "";
-alert("TEST2");
 
 for(let kode in kunciPG){
 
@@ -194,7 +193,7 @@ pembahasanPG[kode]+
 "</p>";
 
 }
-alert("TEST3");
+
 } // PENUTUP for kunciPG
 
 let benarIsian = 0;
@@ -236,7 +235,7 @@ kunciIsian[kode]+
   }
 
 }
-alert("TEST4");
+
 const totalPG = Object.keys(kunciPG).length;
 const totalIsian = Object.keys(kunciIsian).length;
 
@@ -250,7 +249,7 @@ let nilaiAkhir =
 Math.round(nilaiPG + nilaiIsian);
 
 document.getElementById("hasil").style.display="block";
-alert("TEST5");
+
 document.getElementById("hasil").innerHTML=
 "<h2>Hasil Ujian</h2>"+
 "<p>Nama : "+document.getElementById("nama").value+"</p>"+
