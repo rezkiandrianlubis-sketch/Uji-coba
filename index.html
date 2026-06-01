@@ -250,7 +250,7 @@ let nilaiAkhir =
 Math.round(nilaiPG + nilaiIsian);
 
 document.getElementById("hasil").style.display="block";
-
+alert("TEST5");
 document.getElementById("hasil").innerHTML=
 "<h2>Hasil Ujian</h2>"+
 "<p>Nama : "+document.getElementById("nama").value+"</p>"+
@@ -287,7 +287,7 @@ function salinHasil(){
 
 let teks =
 document.getElementById("hasil").innerText;
-alert("TEST5");
+
 navigator.clipboard.writeText(teks);
 
 alert("Hasil berhasil disalin");
